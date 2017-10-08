@@ -1,7 +1,7 @@
 from rest_framework import permissions
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
-    # Custon permission: only the owner can edit'
+    # Custom permission: only the owner can edit'
     def has_object_permission(self,request, view,obj):
         if request.method in permissions.SAFE_METHODS:
             return True

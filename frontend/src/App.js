@@ -5,6 +5,28 @@ import axios from "axios";
 import './App.css';
 
 class App extends Component {
+
+  makeGet(ev) {
+    ev.preventDefault();
+    axios.get('http://127.0.0.1:8000/snippets/1')
+    .then(res => {
+      console.log(res.data)
+    });
+  }
+
+  makePost(ev) {
+    ev.preventDefault();
+    axios.post('http://127.0.0.1:8000/snippets/', {
+      owner: "guest",
+      code: "Love me my love",
+      title: "Not code"
+    })
+    .then(res => {
+      console.log(res.data)
+    });
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -14,18 +36,12 @@ class App extends Component {
         </header>
         <p className="App-intro">
           <button type="button" onClick={this.makeGet}>Click Here to make a GET Request.</button>
+          <button type="button" onClick={this.makePost}>Click Here to make a POST Request.</button>
         </p>
       </div>
     );
   }
 
-  makeGet(ev) {
-    ev.preventDefault();
-    axios.get('http://127.0.0.1:8000/snippets')
-         .then(res => {
-            console.log(res.data)
-         })
-  }
 }
 
 export default App;
