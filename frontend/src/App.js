@@ -21,7 +21,7 @@ class App extends Component {
 
   makeGet(ev) {
     ev.preventDefault();
-    axios.get('/snippets')
+    axios.get('http://127.0.0.1:8000/snippets')
          .then(res => {
             console.log(res.data)
          })
