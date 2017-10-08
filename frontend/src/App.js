@@ -10,10 +10,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Translate Overflow</h1>
         </header>
         <p className="App-intro">
-          I just edited this thing.
           <button type="button" onClick={this.makeGet}>Click Here to make a GET Request.</button>
         </p>
       </div>
@@ -22,13 +21,10 @@ class App extends Component {
 
   makeGet(ev) {
     ev.preventDefault();
-    axios.get('/snippets.json')
+    axios.get('/snippets')
          .then(res => {
-            console.log(res)
+            console.log(res.data)
          })
-        //  .then(response => {
-        //    console.log(JSON.stringify(response));
-        //  });
   }
 }
 
